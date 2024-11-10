@@ -24,11 +24,11 @@ public class LivroEntity {
     @Column(name="ISBN", nullable = false, length = 60)
     private String isbn;
 
-    @ManyToOne(cascade = CascadeType.ALL)
+    @ManyToOne(cascade = CascadeType.MERGE)
     @JoinColumn(name="AUTOR_ID", nullable = false)
     private AutorEntity autor;
 
-    @ManyToOne(cascade = CascadeType.ALL)
+    @ManyToOne(cascade = CascadeType.MERGE)
     @JoinColumn(name = "CATEGORIA_ID", nullable = false)
     private CategoriaEntity categoria;
 }

@@ -1,9 +1,7 @@
 package com.example.demo.api.service;
 
 import com.example.demo.api.dto.AutorDTO;
-import com.example.demo.api.dto.ClienteDTO;
 import com.example.demo.api.model.AutorEntity;
-import com.example.demo.api.model.ClienteEntity;
 import com.example.demo.api.repository.AutorRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;

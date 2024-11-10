@@ -1,11 +1,8 @@
 package com.example.demo.api.controller;
 
 import com.example.demo.api.dto.AutorDTO;
-import com.example.demo.api.dto.ClienteDTO;
 import com.example.demo.api.model.AutorEntity;
-import com.example.demo.api.model.ClienteEntity;
 import com.example.demo.api.service.AutorService;
-import org.apache.coyote.Response;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
