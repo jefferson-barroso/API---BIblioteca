@@ -18,6 +18,7 @@ public class ClienteService {
     public List<ClienteEntity> listarTodos(){
         return clienteRepository.findAll();
     }
+
     public ClienteEntity incluir(ClienteDTO dto){
         dto.setNome(dto.getNome());
         dto.setStatus(dto.getStatus());
