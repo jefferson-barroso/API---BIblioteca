@@ -1,5 +1,7 @@
 package com.example.demo.api.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.*;
 import lombok.*;
 
@@ -9,6 +11,7 @@ import lombok.*;
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
+@JsonIgnoreProperties(ignoreUnknown = true)
 @Table(name="TBL_LIVROS")
 public class LivroEntity {
 
@@ -26,9 +29,11 @@ public class LivroEntity {
 
     @ManyToOne(cascade = CascadeType.MERGE)
     @JoinColumn(name="AUTOR_ID", nullable = false)
+    @JsonIgnore
     private AutorEntity autor;
 
     @ManyToOne(cascade = CascadeType.MERGE)
     @JoinColumn(name = "CATEGORIA_ID", nullable = false)
+    @JsonIgnore
     private CategoriaEntity categoria;
 }

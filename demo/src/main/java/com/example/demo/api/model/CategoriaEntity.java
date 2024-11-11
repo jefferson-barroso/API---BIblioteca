@@ -1,5 +1,8 @@
 package com.example.demo.api.model;
+import java.util.List;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.*;
 import lombok.*;
 
@@ -9,6 +12,7 @@ import lombok.*;
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
+@JsonIgnoreProperties(ignoreUnknown = true)
 @Table(name = "TBL_CATEGORIAS")
 public class CategoriaEntity {
 
@@ -19,4 +23,8 @@ public class CategoriaEntity {
 
     @Column(name = "NOME", nullable = false, length = 60)
     private String nome;
+
+    @OneToMany(mappedBy = "categoria", cascade = CascadeType.ALL, orphanRemoval = true)
+    @JsonIgnore
+    private List<LivroEntity> livros;
 }

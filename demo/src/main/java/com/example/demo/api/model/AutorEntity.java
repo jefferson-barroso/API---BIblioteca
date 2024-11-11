@@ -1,6 +1,10 @@
 package com.example.demo.api.model;
 
+import java.util.List;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.*;
 import lombok.*;
 
@@ -10,6 +14,7 @@ import lombok.*;
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
+@JsonIgnoreProperties(ignoreUnknown = true)
 @Table(name = "TBL_AUTORES")
 public class AutorEntity {
 
@@ -23,4 +28,8 @@ public class AutorEntity {
 
     @Column(name= "NACIONALIDADE", nullable = false, length = 60)
     private String nacionalidade;
+
+    @OneToMany(mappedBy = "autor", cascade = CascadeType.ALL, orphanRemoval = true)
+   // @JsonIgnore
+    private List<LivroEntity> livros;
 }
